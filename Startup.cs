@@ -72,7 +72,9 @@ namespace WebApplicationRB
 
             app.UseRouting();
 
-            app.UseAuthorization() ; 
+            app.UseAuthorization() ;
+
+            //config.Routes.MapHttpRoute("API Default", "api/{controller}/{id}", new { id = RouteParameter.Optional });
 
             app.UseEndpoints(endpoints =>
             {
