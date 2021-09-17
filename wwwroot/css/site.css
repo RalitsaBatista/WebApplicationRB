@@ -1,0 +1,33 @@
+﻿
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+.grid-container {
+    width:80%;
+    margin:0 auto;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+table td, table th {
+    border: 1px solid #666;
+    padding: 6px;
+}
+.form-row {
+    margin-bottom: 20px;
+}

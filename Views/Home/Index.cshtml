@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<table class="hover stripped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Head 1</td>
+            <td>Head 2</td>
+            <td>Head 3</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Row 1a</td>
+            <td>Row 1b</td>
+            <td>Row 1c</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Row 2a</td>
+            <td>Row 2b</td>
+            <td>Row 2c</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Row 3a</td>
+            <td>Row 3b</td>
+            <td>Row 3c</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="form-wrapper">
+    <form method="post" action="/Home/Task2Post">
+        <div class="form-row">
+            <label>
+                Text Input Label
+                <input type="text" name="text1" placeholder="Text Input">
+            </label>
+        </div>
+
+        <div class="form-row">
+            <label>
+                Select Menu
+                <select name="select1">
+                    <option value="" selected>-- Select Option --</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="form-row">
+            <fieldset class="large-5 cell">
+                <legend>Choose radio option</legend>
+                <input type="radio" name="radio1" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
+                <input type="radio" name="radio1" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+                <input type="radio" name="radio1" value="Yellow" checked id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
+            </fieldset>
+        </div>
+        <div class="form-row">
+            <fieldset class="large-7 cell">
+                <legend>Checkboxes</legend>
+                <input id="checkbox1" name="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+                <input id="checkbox2" name="checkbox2" type="checkbox" checked><label for="checkbox2">Checkbox 2</label>
+                <input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3">Checkbox 3</label>
+            </fieldset>
+        </div>
+
+        <div class="form-row">
+            <input type="submit" />
+        </div>
+    </form>
+</div>
