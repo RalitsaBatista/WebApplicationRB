@@ -22,6 +22,11 @@ namespace WebApplicationRB.Controllers
             return View();
         }
 
+        public IActionResult Weather()
+        {
+            return View();
+        }
+
         public ActionResult Setlang(HttpRequestMessage request, string lang = "en-US")
         {
             base.SetLanguage(lang);

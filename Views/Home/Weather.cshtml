@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Current Weather";
+}
+<div class="text-center">
+    <h1 class="display-4">@Resources.Resource.Current_Weather</h1>
+
+
+
+
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class=" ">
+                <div class="large-3 medium-4 small-12"></div>
+                <table class="unstriped border hover large-2 medium-4 small-12">
+                    <tbody>
+                        <tr>
+                            <td class="text-left">@Resources.Resource.City</td>
+                            <td class="text-left" id="city"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">@Resources.Resource.Temperature</td>
+                            <td class="text-left" id="temp"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">@Resources.Resource.Wind_speed</td>
+                            <td class="text-left" id="wind"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <a class="button" id="get-weather">@Resources.Resource.Refresh</a>
+</div>
+
+@section Scripts {
+    <script src="~/js/weather.js"></script>
+}
+
