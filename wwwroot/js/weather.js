@@ -2,7 +2,8 @@
 let lat = 60.192059;
 let lon = 24.945831;
 const apiKey = '33b6481666cb3e97bf888af54aa091b9';
-const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?units=metric&lat=';
+//const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?units=metric&lat=';
+const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?units=metric&lat=%lat%&lon=%lon%&appid=%appid%';
 
 const getData = () => {
     $('#city').text('');
@@ -12,7 +13,9 @@ const getData = () => {
 
     setTimeout(function () {
 
-        $.getJSON(apiUrl + lat + "&lon=" + lon + "&appid=" + apiKey, (data) => {
+        //$.getJSON(apiUrl + lat + "&lon=" + lon + "&appid=" + apiKey, (data) => {
+        let _apiUrl = apiUrl.replace('%lat%', lat).replace('%lon%', lon).replace('%appid%', apiKey);
+        $.getJSON(_apiUrl, (data) => {
             let temp = data["main"]["temp"];
             let city = data["name"];
             let wind = data["wind"]["speed"];
