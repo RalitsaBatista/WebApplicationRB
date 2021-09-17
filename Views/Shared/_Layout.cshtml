@@ -12,7 +12,7 @@
 <body>
     <header class="">
 
-        <ul class="dropdown menu columns large-3" data-dropdown-menu>
+        <ul class="dropdown menu" data-dropdown-menu>
             <li><a asp-area="" asp-controller="Home" asp-action="Index">@Resources.Resource.Home</a></li>
             <li>
                 <a href="javascript:;">@Resources.Resource.Task 2</a>
@@ -30,20 +30,23 @@
                 </ul>
             </li>
             <li><a asp-area="" asp-controller="Home" asp-action="Weather">@Resources.Resource.Task 3</a></li>
+
+
+            <li><a asp-area="" asp-controller="Products" asp-action="Index">Backend @Resources.Resource.Task 2 / @Resources.Resource.Products</a></li>
             <li class="margin-right-2">
 
 
                 @if (TempData["lang"] != null)
                 {
 
-                    <a href="javascript:;">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + TempData["lang"] + ".png\" />")</a>
+                <a href="javascript:;">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + TempData["lang"] + ".png\" />")</a>
 
                 }
                 else
                 {
-                    <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
-                        <img alt="en" width="16" src="/img/en.png" )">
-                    </a>
+                <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
+                    <img alt="en" width="16" src="/img/en.png" )">
+                </a>
                 }
 
                 <ul class="menu vertical">
@@ -76,6 +79,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/foundation/js/foundation.min.js"></script>
+    
     <script>
         $(document).foundation();
     </script>

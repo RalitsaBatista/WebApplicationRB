@@ -33,8 +33,10 @@ namespace WebApplicationRB.Models
         [Display(Name = "Price", ResourceType = typeof(Resources.Resource))]
         [DataType(DataType.Currency)]
         [Column(TypeName = "money")]
+        //[Column(TypeName = "decimal(18, 2)")]
         [Range(0.01, double.MaxValue, ErrorMessageResourceName = "Must_be_greater", ErrorMessageResourceType = typeof(Resource))]
         [DisplayFormat(DataFormatString = "{0:n2}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:#.##}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessageResourceName = "Is_required", ErrorMessageResourceType = typeof(Resource))]
         public decimal Price { get; set; }
 

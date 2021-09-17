@@ -33,3 +33,9 @@ table td, table th {
 .form-row {
     margin-bottom: 20px;
 }*/
+.text-danger {
+    color: #982020;
+}
+.form-control {
+    margin-bottom: 0;
+}

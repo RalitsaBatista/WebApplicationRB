@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function countChar(src, dst, max) {
+    let inputEl = $(src);
+    let dstEl = $(dst);
+    let text = inputEl.val();
+    var len = text.length;
+    if (len > max) {
+        inputEl.val(text.substring(0, max));
+        len = inputEl.val().length;
+    }
+    dstEl.find('span').first().text(len);
+    dstEl.find('span').last().text(max);
 
-// Write your JavaScript code.
+};
+
+$(document).on("keyup", "#edit-desc,#create-desc", (e) => {
+    let id = $(e.currentTarget).attr('id');
+    countChar('#' + id, '#' + id+'-counter');
+});

@@ -1,0 +1,49 @@
+﻿@model WebApplicationRB.Models.Product
+
+@{
+    ViewData["Title"] = @Resources.Resource.Delete +" "+ @Resources.Resource.Product;
+}
+
+
+
+<div>
+    <h4 class="warning">@Resources.Resource.Are_you_sure_delete @Resources.Resource.Product ?</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modified)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" class="margin-top-2">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="button alert margin-right-1" />
+        <a asp-action="Index" class="button">@Resources.Resource.Back_to_List</a>
+    </form>
+</div>

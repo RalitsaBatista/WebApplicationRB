@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,15 +42,31 @@ namespace WebApplicationRB
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            CultureInfo cultureInfo = new CultureInfo(Configuration["SiteLocale"]);
-            cultureInfo.NumberFormat.CurrencySymbol = "ˆ";
-            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
-            cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
-            CultureInfo.CurrentCulture = cultureInfo;
-            Resources.Resource.Culture = cultureInfo;
-            System.Diagnostics.Debug.WriteLine("current culture 000: " + CultureInfo.CurrentCulture.Name);
+
+
+            
+            List<CultureInfo> supportedCultures = new List<CultureInfo>();
+            var allowedCultures =  Configuration.GetSection("allowedCultures").Get<string[]>();
+            //var defaultCulture = new CultureInfo(Configuration["SiteLocale"]);
+
+            foreach (var ci in allowedCultures)
+            {
+                CultureInfo cultureInfo = new CultureInfo(ci);
+                cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+                cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+                cultureInfo.NumberFormat.NumberGroupSeparator = ",";
+                supportedCultures.Add(cultureInfo);
+            }
+
+           
+
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(Configuration["SiteLocale"]),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+            app.UseRequestLocalization(localizationOptions);
 
             app.UseStaticFiles();
 
@@ -63,6 +80,10 @@ namespace WebApplicationRB
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+          
+
+            
+            
         }
     }
 }

@@ -201,6 +201,9 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Select_Category" xml:space="preserve">
+    <value>Select category</value>
+  </data>
   <data name="Submitted_data" xml:space="preserve">
     <value>Submitted data </value>
   </data>

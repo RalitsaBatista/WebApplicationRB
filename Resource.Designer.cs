@@ -313,6 +313,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select category.
+        /// </summary>
+        public static string Select_Category {
+            get {
+                return ResourceManager.GetString("Select_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submitted data .
         /// </summary>
         public static string Submitted_data {
