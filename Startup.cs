@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,7 +23,9 @@ namespace WebApplicationRB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllersWithViews();
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +39,16 @@ namespace WebApplicationRB
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            CultureInfo cultureInfo = new CultureInfo(Configuration["SiteLocale"]);
+            cultureInfo.NumberFormat.CurrencySymbol = "ˆ";
+            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+            cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            CultureInfo.CurrentCulture = cultureInfo;
+            Resources.Resource.Culture = cultureInfo;
+            System.Diagnostics.Debug.WriteLine("current culture 000: " + CultureInfo.CurrentCulture.Name);
+
             app.UseStaticFiles();
 
             app.UseRouting();

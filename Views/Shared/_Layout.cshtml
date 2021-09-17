@@ -4,17 +4,64 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApplication- Ralitsa Batista</title>
-    <!--<link rel="stylesheet" href="~/lib/foundation/css/foundation.min.css" />-->
+    <link rel="stylesheet" href="~/lib/foundation/css/foundation.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header class="">
 
-        
+        <ul class="dropdown menu columns large-3" data-dropdown-menu>
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">@Resources.Resource.Home</a></li>
+            <li>
+                <a>@Resources.Resource.Task 2</a>
+                <ul class="menu">
+                    <li><a href="javascript:;">Item 1</a></li>
+                    <li><a href="javascript:;">Item 2</a></li>
+                    <li>
+                        <a>More Items</a>
+                        <ul class="menu">
+                            <li><a href="javascript:;">Item 3</a></li>
+                            <li><a href="javascript:;">Item 4</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="margin-right-2">
+
+
+                @if (TempData["lang"] != null)
+                {
+
+                    <a href="javascript:;">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + TempData["lang"] + ".png\" />")</a>
+
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
+                        <img alt="en" width="16" src="/img/en.png" )">
+                    </a>
+                }
+
+                <ul class="menu vertical">
+
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="fi-FI" title="FI" class="">
+                            <img alt="fi" width="16" src="/img/fi.png" )"> Suomi
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
+                            <img alt="en" width="16" src="/img/en.png" )"> English
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
         <div class="columns large-3"></div>
     </header>
     <div class="grid-container">
-        <main role="grid-x" class="padding-bottom-3">
+        <main class="padding-bottom-3 grid-x">
             @RenderBody()
         </main>
     </div>
@@ -24,11 +71,11 @@
             &copy; 2021 - WebApplication test Ralitsa Batista - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/foundation/js/foundation.min.js"></script>
     <script>
         $(document).foundation();
-    </script>-->
+    </script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
