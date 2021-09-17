@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +27,7 @@ namespace WebApplicationRB
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddDbContext<Data.ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

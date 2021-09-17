@@ -201,6 +201,9 @@
   <data name="Save" xml:space="preserve">
     <value>Tallenna</value>
   </data>
+  <data name="Submitted_data" xml:space="preserve">
+    <value>Lähetetyt tiedot</value>
+  </data>
   <data name="Task" xml:space="preserve">
     <value>Tehtävä</value>
   </data>

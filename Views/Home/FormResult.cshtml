@@ -1,0 +1,24 @@
+﻿<h4 class="text-center">@Resources.Resource.Submitted_data</h4>
+<div class="margin-2">
+    <table>
+        <tbody>
+            <tr>
+                <td>text1</td>
+                <td>@ViewData["text1"]</td>
+            </tr>
+            <tr>
+                <td>select1</td>
+                <td>@ViewData["select1"]</td>
+            </tr>
+            <tr>
+                <td>radio1</td>
+                <td>@ViewData["radio1"]</td>
+            </tr>
+            <tr>
+                <td>checkbox1,2,3</td>
+                <td>@ViewData["checkbox1"] | @ViewData["checkbox2"] | @ViewData["checkbox3"]</td>
+            </tr>
+        </tbody>
+    </table>
+    <a asp-action="Index" class="button">@Resources.Resource.Back_to_List</a>
+</div>

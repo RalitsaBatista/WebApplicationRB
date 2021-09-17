@@ -21,9 +21,28 @@ namespace WebApplicationRB.Controllers
         {
             return View();
         }
-
+        
         public IActionResult Weather()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FormResult()
+        {
+            ViewData["text1"] = Request.Form["text1"];
+            ViewData["select1"] = Request.Form["select1"];
+            ViewData["radio1"] = Request.Form["radio1"];
+            ViewData["checkbox1"] = (Request.Form["checkbox1"] == "on") ? 1 : 0;
+            ViewData["checkbox2"] = (Request.Form["checkbox2"] == "on") ? 1 : 0;
+            ViewData["checkbox3"] = (Request.Form["checkbox3"] == "on") ? 1 : 0;
+
+
+            foreach (var item in Request.Form)
+            {
+                //if (!key.ToString().StartsWith("checkbox")) continue;
+                System.Diagnostics.Debug.WriteLine(item.Key + " = " + item.Value);
+            }
             return View();
         }
 
