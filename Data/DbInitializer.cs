@@ -8,6 +8,7 @@ namespace WebApplicationRB.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
+
             var categories = new List<Category>
             {
                 new Category{Name="Vegetables"},

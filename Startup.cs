@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,10 @@ namespace WebApplicationRB
             services.AddControllersWithViews();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddDbContext<Data.ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnString")));
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+               .AddEntityFrameworkStores<Data.ApplicationDbContext>();
+            services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +42,17 @@ namespace WebApplicationRB
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseMigrationsEndPoint();
+                using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+                {
+                    var context = serviceScope.ServiceProvider.GetRequiredService<Data.ApplicationDbContext>();
+                    context.Database.EnsureDeleted();
+                    //context.Database.EnsureCreated();
+                    context.Database.Migrate();
+                    Data.DbInitializer.Initialize(context);
+
+
+                }
             }
             else
             {
@@ -72,7 +88,8 @@ namespace WebApplicationRB
 
             app.UseRouting();
 
-            app.UseAuthorization() ;
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             //config.Routes.MapHttpRoute("API Default", "api/{controller}/{id}", new { id = RouteParameter.Optional });
 
@@ -81,6 +98,7 @@ namespace WebApplicationRB
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
           
 

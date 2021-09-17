@@ -16,10 +16,10 @@ namespace WebApplicationRB
         {
             //CreateHostBuilder(args).Build().Run();
             var host = CreateHostBuilder(args).Build();
-            CreateDbIfNotExists(host);
+            //CreateDbIfNotExists(host);
             host.Run();
         }
-
+        /**/
         private static void CreateDbIfNotExists(IHost host)
         {
             using (var scope = host.Services.CreateScope())
@@ -28,6 +28,7 @@ namespace WebApplicationRB
                 try
                 {
                     var context = services.GetRequiredService<Data.ApplicationDbContext>();
+                    
                     context.Database.EnsureDeleted();
                     context.Database.EnsureCreated();
                     Data.DbInitializer.Initialize(context);

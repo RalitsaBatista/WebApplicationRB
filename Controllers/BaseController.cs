@@ -50,38 +50,7 @@ namespace WebApplicationRB.Controllers
             catch { }
         }
 
-        /*
-        public override void OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext context)
-        {
-            base.OnActionExecuting(context);
-
-            CultureInfo cultureInfo = new CultureInfo(allowedCultures.First());
-                
-               
-            var cookieLang = Request.Cookies.Where(c => c.Key.Equals("lang")).FirstOrDefault();
-            if (cookieLang.Key == null)
-            {
-                CookieOptions cookieOptions = new CookieOptions();
-                cookieOptions.Expires = DateTime.Now.AddYears(1);
-                Response.Cookies.Append("lang", cultureInfo.Name, cookieOptions);
-            }                
-            else
-            {
-                cultureInfo = new CultureInfo(cookieLang.Value);
-            }
-            cultureInfo.NumberFormat.CurrencySymbol = "&euro;";
-            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
-            cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
-
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
-            CultureInfo.CurrentCulture = cultureInfo;
-            Resources.Resource.Culture = cultureInfo;
-
-            System.Diagnostics.Debug.WriteLine("current culture: " + CultureInfo.CurrentCulture.Name);
-            TempData["lang"] = CultureInfo.CurrentCulture.Name.Split('-').First();
-        }*/
-
+       
         public override void OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
@@ -108,7 +77,7 @@ namespace WebApplicationRB.Controllers
                 }
 
             }
-            TempData["lang"] = CultureInfo.CurrentCulture.Name.Split('-').First();
+            //TempData["lang"] = CultureInfo.CurrentCulture.Name.Split('-').First();
             System.Diagnostics.Debug.WriteLine("current culture: " + CultureInfo.CurrentCulture.Name);
         }
     }

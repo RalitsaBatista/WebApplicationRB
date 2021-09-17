@@ -109,14 +109,14 @@
     <value>text/microsoft-resx</value>
   </resheader>
   <resheader name="version">
-    <value>2.0</value>
+    <value>1.3</value>
   </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
   <data name="About" xml:space="preserve">
     <value>Meistä</value>
   </data>
@@ -144,6 +144,9 @@
   <data name="Create_new" xml:space="preserve">
     <value>Luo uusi</value>
   </data>
+  <data name="Create_new_account" xml:space="preserve">
+    <value>Luo uusi tili</value>
+  </data>
   <data name="Current_Weather" xml:space="preserve">
     <value>Sää nyt</value>
   </data>
@@ -159,14 +162,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Muokkaa</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="Fruits" xml:space="preserve">
     <value>Hedelmät</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Etusivu</value>
   </data>
+  <data name="Invalid_login_attempt" xml:space="preserve">
+    <value>Virheellinen kirjautumisyritys</value>
+  </data>
   <data name="Is_required" xml:space="preserve">
     <value>Kenttä {0} on pakollinen</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Kirjaudu sisään</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Kirjautua ulos</value>
   </data>
   <data name="Modified" xml:space="preserve">
     <value>Muokattu</value>
@@ -183,6 +198,15 @@
   <data name="No_more_than" xml:space="preserve">
     <value>{0} ei voi olla pidempi kuin {1} merkkiä</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Salasana</value>
+  </data>
+  <data name="Password_confirm" xml:space="preserve">
+    <value>Vahvista salasana</value>
+  </data>
+  <data name="Password_confirm_not_match" xml:space="preserve">
+    <value>Salasana ja vahvistussalasana eivät täsmää.</value>
+  </data>
   <data name="Price" xml:space="preserve">
     <value>Hinta</value>
   </data>
@@ -194,6 +218,15 @@
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Päivitä</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Rekisteröidy</value>
+  </data>
+  <data name="Register_new_user" xml:space="preserve">
+    <value>Rekisteröidy uutena käyttäjänä</value>
+  </data>
+  <data name="Remember_me" xml:space="preserve">
+    <value>Muista minut?</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Poista</value>
@@ -212,6 +245,9 @@
   </data>
   <data name="Temperature" xml:space="preserve">
     <value>Lämpötila</value>
+  </data>
+  <data name="User_logged_in" xml:space="preserve">
+    <value>Käyttäjä kirjautunut sisään.</value>
   </data>
   <data name="Wind_speed" xml:space="preserve">
     <value>Tuulen nopeus</value>

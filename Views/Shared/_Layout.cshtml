@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -34,20 +35,20 @@
 
             <li><a asp-area="" asp-controller="Products" asp-action="Index">Backend @Resources.Resource.Task 2 / @Resources.Resource.Products</a></li>
             <li class="margin-right-2">
-
-
-                @if (TempData["lang"] != null)
-                {
-
-                <a href="javascript:;">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + TempData["lang"] + ".png\" />")</a>
+                @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+                @{
+                    Context.Request.Cookies.TryGetValue("lang", out string lang);
+                    if (lang != null)
+                    {
+                    <a href="#">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + lang.Split('-').First() + ".png\" />")</a>
+                    }
+                    else
+                    {
+                    <a href="#">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img//en.png\" />")</a>
+                    }
 
                 }
-                else
-                {
-                <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
-                    <img alt="en" width="16" src="/img/en.png" )">
-                </a>
-                }
+                
 
                 <ul class="menu vertical">
 
@@ -63,7 +64,10 @@
                     </li>
                 </ul>
             </li>
+
+            <partial name="_LoginPartial" />
         </ul>
+        
         <div class="columns large-3"></div>
     </header>
     <div class="grid-container">

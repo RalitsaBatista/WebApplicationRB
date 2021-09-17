@@ -39,3 +39,7 @@ table td, table th {
 .form-control {
     margin-bottom: 0;
 }
+#logoutForm button {
+    color: #982020;
+    cursor: pointer;
+}
