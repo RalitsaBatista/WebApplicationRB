@@ -2,7 +2,7 @@
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-<!--<ul class="navbar-nav menu">-->
+<ul class="menu">
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -25,4 +25,4 @@ else
         <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">@Resources.Resource.Login</a>
     </li>
 }
-<!--</ul>-->
+</ul>

@@ -223,6 +223,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid email address.
+        /// </summary>
+        public static string Invalid_email_address {
+            get {
+                return ResourceManager.GetString("Invalid_email_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid login attempt.
         /// </summary>
         public static string Invalid_login_attempt {
@@ -327,6 +336,69 @@ namespace Resources {
         public static string Password_confirm_not_match {
             get {
                 return ResourceManager.GetString("Password_confirm_not_match", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} must be at least {2} and at max {1} characters long..
+        /// </summary>
+        public static string Password_min_max {
+            get {
+                return ResourceManager.GetString("Password_min_max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one lowercase (&apos;a&apos;-&apos;z&apos;)..
+        /// </summary>
+        public static string Password_must_one_char_small {
+            get {
+                return ResourceManager.GetString("Password_must_one_char_small", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one non alphanumeric character..
+        /// </summary>
+        public static string Password_must_one_char_special {
+            get {
+                return ResourceManager.GetString("Password_must_one_char_special", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one uppercase (&apos;A&apos;-&apos;Z&apos;)..
+        /// </summary>
+        public static string Password_must_one_char_upper {
+            get {
+                return ResourceManager.GetString("Password_must_one_char_upper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one digit (&apos;0&apos;-&apos;9&apos;)..
+        /// </summary>
+        public static string Password_must_one_digit {
+            get {
+                return ResourceManager.GetString("Password_must_one_digit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect password..
+        /// </summary>
+        public static string PasswordMismatch {
+            get {
+                return ResourceManager.GetString("PasswordMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must be at least {0} characters..
+        /// </summary>
+        public static string Passwords_must_be_at_least {
+            get {
+                return ResourceManager.GetString("Passwords_must_be_at_least", resourceCulture);
             }
         }
         

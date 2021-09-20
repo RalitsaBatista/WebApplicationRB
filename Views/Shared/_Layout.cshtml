@@ -12,64 +12,69 @@
 </head>
 <body>
     <header class="">
-
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li><a asp-area="" asp-controller="Home" asp-action="Index">@Resources.Resource.Home</a></li>
-            <li>
-                <a href="javascript:;">@Resources.Resource.Task 2</a>
-                <ul class="menu">
-                    <li><a href="javascript:;">Item 1</a></li>
-                    <li><a href="javascript:;">Item 2</a></li>
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Resources.Resource.Home</a></li>
                     <li>
-                        <a>More Items</a>
+                        <a href="javascript:;">@Resources.Resource.Task 2</a>
                         <ul class="menu">
-                            <li><a href="javascript:;">Item 3</a></li>
-                            <li><a href="javascript:;">Item 4</a></li>
+                            <li><a href="javascript:;">Item 1</a></li>
+                            <li><a href="javascript:;">Item 2</a></li>
+                            <li>
+                                <a>More Items</a>
+                                <ul class="menu">
+                                    <li><a href="javascript:;">Item 3</a></li>
+                                    <li><a href="javascript:;">Item 4</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Weather">@Resources.Resource.Task 3</a></li>
+
+
+                    <li><a asp-area="" asp-controller="Products" asp-action="Index">Backend @Resources.Resource.Task 2 / @Resources.Resource.Products</a></li>
+                    <li class="margin-right-2">
+                        @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+                        @{
+                            Context.Request.Cookies.TryGetValue("lang", out string lang);
+                            if (lang != null)
+                            {
+                                <a href="#">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + lang.Split('-').First() + ".png\" />")</a>
+                            }
+                            else
+                            {
+                                <a href="#">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img//en.png\" />")</a>
+                            }
+
+                        }
+
+
+                        <ul class="menu vertical">
+
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="fi-FI" title="FI" class="">
+                                    <img alt="fi" width="16" src="/img/fi.png" )"> Suomi
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
+                                    <img alt="en" width="16" src="/img/en.png" )"> English
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
+                    
                 </ul>
-            </li>
-            <li><a asp-area="" asp-controller="Home" asp-action="Weather">@Resources.Resource.Task 3</a></li>
-
-
-            <li><a asp-area="" asp-controller="Products" asp-action="Index">Backend @Resources.Resource.Task 2 / @Resources.Resource.Products</a></li>
-            <li class="margin-right-2">
-                @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-                @{
-                    Context.Request.Cookies.TryGetValue("lang", out string lang);
-                    if (lang != null)
-                    {
-                    <a href="#">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img/" + lang.Split('-').First() + ".png\" />")</a>
-                    }
-                    else
-                    {
-                    <a href="#">@Html.Raw("<img alt=\"language\" width=\"16\" src=\"/img//en.png\" />")</a>
-                    }
-
-                }
-                
-
-                <ul class="menu vertical">
-
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="fi-FI" title="FI" class="">
-                            <img alt="fi" width="16" src="/img/fi.png" )"> Suomi
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Setlang" asp-route-lang="en-US" title="EN" class="">
-                            <img alt="en" width="16" src="/img/en.png" )"> English
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <partial name="_LoginPartial" />
-        </ul>
-        
-        <div class="columns large-3"></div>
-    </header>
+                </div>
+            <div class="top-bar-right">
+                <partial name="_LoginPartial" />
+            </div>
+            </div>
+                <div class="columns large-3"></div>
+</header>
     <div class="grid-container">
         <main class="padding-bottom-3 padding-top-3">
             @RenderBody()

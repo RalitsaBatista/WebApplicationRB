@@ -109,14 +109,14 @@
     <value>text/microsoft-resx</value>
   </resheader>
   <resheader name="version">
-    <value>1.3</value>
+    <value>2.0</value>
   </resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
   <data name="About" xml:space="preserve">
     <value>Meistä</value>
   </data>
@@ -171,6 +171,9 @@
   <data name="Home" xml:space="preserve">
     <value>Etusivu</value>
   </data>
+  <data name="Invalid_email_address" xml:space="preserve">
+    <value>sähköpostiosoite on virheelinen</value>
+  </data>
   <data name="Invalid_login_attempt" xml:space="preserve">
     <value>Virheellinen kirjautumisyritys</value>
   </data>
@@ -201,11 +204,32 @@
   <data name="Password" xml:space="preserve">
     <value>Salasana</value>
   </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Väärä salasana.</value>
+  </data>
+  <data name="Passwords_must_be_at_least" xml:space="preserve">
+    <value>Salasanassa on oltava vähintään {0} merkkiä.</value>
+  </data>
   <data name="Password_confirm" xml:space="preserve">
     <value>Vahvista salasana</value>
   </data>
   <data name="Password_confirm_not_match" xml:space="preserve">
     <value>Salasana ja vahvistussalasana eivät täsmää.</value>
+  </data>
+  <data name="Password_min_max" xml:space="preserve">
+    <value>{0} on oltava vähintään {2} ja enintään {1} merkkiä pitkä.</value>
+  </data>
+  <data name="Password_must_one_char_small" xml:space="preserve">
+    <value>Salasanassa on oltava vähintään yksi pieni kirjain('a'-'z').</value>
+  </data>
+  <data name="Password_must_one_char_special" xml:space="preserve">
+    <value>Salasanassa on oltava vähintään yksi erikoismerkki.</value>
+  </data>
+  <data name="Password_must_one_char_upper" xml:space="preserve">
+    <value>Salasanassa on oltava vähintään yksi iso kirjain('A'-'Z').</value>
+  </data>
+  <data name="Password_must_one_digit" xml:space="preserve">
+    <value>Salasanassa on oltava vähintään yksi numero ('0'-'9').</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Hinta</value>
