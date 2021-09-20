@@ -47,12 +47,12 @@ namespace WebApplicationRB.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required(ErrorMessageResourceName = "Is_required", ErrorMessageResourceType = typeof(Resource))]
-            [EmailAddress]            
+            [EmailAddress(ErrorMessageResourceName = "Invalid_email_address", ErrorMessageResourceType = typeof(Resource))]            
             [Display(Name = "Email", ResourceType = typeof(Resources.Resource))]
             public string Email { get; set; }
 
             [Required(ErrorMessageResourceName = "Is_required", ErrorMessageResourceType = typeof(Resource))]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, MinimumLength = 6, ErrorMessageResourceName = "Password_min_max", ErrorMessageResourceType = typeof(Resource))]
             [DataType(DataType.Password)]            
             [Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
             public string Password { get; set; }

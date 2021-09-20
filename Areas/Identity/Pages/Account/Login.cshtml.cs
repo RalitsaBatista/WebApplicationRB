@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Resources;
 
 namespace WebApplicationRB.Areas.Identity.Pages.Account
 {
@@ -42,12 +43,15 @@ namespace WebApplicationRB.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessageResourceName = "Is_required", ErrorMessageResourceType = typeof(Resource))]
             [EmailAddress]
+            [Display(Name = "Email", ResourceType = typeof(Resource))]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessageResourceName = "Is_required", ErrorMessageResourceType = typeof(Resource))]
+            [StringLength(100, MinimumLength = 6, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.")]
             [DataType(DataType.Password)]
+            [Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
             public string Password { get; set; }
 
             [Display(Name = "Remember me?")]
